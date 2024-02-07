@@ -20,9 +20,16 @@
         }
 
         .image {
-            width: 80%;
+            width: 80%; /* Tamanho padrão */
             height: auto;
-            max-width: 100%;
+            max-width: 40%; /* Tamanho para computadores */
+        }
+
+        @media only screen and (max-width: 600px) {
+            /* Para dispositivos móveis, a imagem ocupará 80% da tela */
+            .image {
+                max-width: 80%;
+            }
         }
 
         .text {
@@ -34,21 +41,35 @@
 
         .button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 30px; /* Aumentando o padding para tornar os botões maiores */
             font-family: 'Roboto', sans-serif;
-            font-size: 18px;
+            font-size: 20px; /* Aumentando o tamanho da fonte */
             color: #fff;
             background-color: #000;
-            border-radius: 10px;
+            border-radius: 20px; /* Aumentando o raio da borda para botões mais arredondados */
             text-decoration: none;
-            margin-top: 20px;
+            margin: 20px 10px; /* Espaçamento entre os botões */
+            border: none; /* Removendo a borda */
+            cursor: pointer; /* Mudando o cursor ao passar por cima do botão */
+            transition: background-color 0.3s; /* Adicionando uma transição suave na mudança de cor de fundo */
+        }
+
+        .button:hover {
+            background-color: #333; /* Mudando a cor de fundo ao passar o mouse sobre o botão */
+        }
+
+        .button:disabled {
+            background-color: #999; /* Cor de fundo para botão desativado */
+            cursor: not-allowed; /* Mudando o cursor para 'não permitido' quando o botão está desativado */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <img class="image" src="https://acsolucoes.github.io/cardapios/kanoa/logo.png" alt="Logo">
+        <br>
         <a class="button" href="https://acsolucoes.github.io/cardapios/kanoa/menu_kanoa.pdf">Abrir cardápio</a>
+        <button class="button" disabled>Pesquisa de satisfação</button>
     </div>
 </body>
 </html>
